@@ -1,9 +1,12 @@
 export default function addTodo() {
-  console.log("Adding todo");
+  if (document.getElementById("todo-name").value === "") return;
+
+  const todoName = document.getElementById("todo-name").value;
+
   const todo = document.createElement("li");
   todo.classList.add("todo");
   const todoTitle = document.createElement("h4");
-  todoTitle.textContent = "Todo title";
+  todoTitle.textContent = todoName;
   const todoDescription = document.createElement("p");
   todoDescription.textContent = "Todo description";
   const todoDueDate = document.createElement("p");
@@ -15,5 +18,5 @@ export default function addTodo() {
   todo.appendChild(todoDueDate);
   todo.appendChild(todoPriority);
   document.getElementById("todos").appendChild(todo);
-  console.log("Todo added");
+  document.getElementById("todo-name").value = "";
 }
