@@ -8,4 +8,7 @@ export default function onLoad() {
 
   addEventListeners(projectListModule);
   renderProjects(projectListModule);
+  document
+    .getElementById("project-list")
+    .firstChild.firstChild.classList.add("active-project");
 }

@@ -24,13 +24,13 @@ export default function addEventListeners(projectListModule) {
 
   addTodoBtn.addEventListener("click", (e) => {
     if (addTodoText.value !== "") {
-      rerenderTodoList(projectListModule.getProjects()[0], addTodoText);
+      rerenderTodoList(projectListModule.getCurrentProject(), addTodoText);
     }
   });
 
   addTodoText.addEventListener("keypress", (e) => {
     if (e.key === "Enter" && addTodoText.value !== "") {
-      rerenderTodoList(projectListModule.getProjects()[0], addTodoText);
+      rerenderTodoList(projectListModule.getCurrentProject(), addTodoText);
     }
   });
 }

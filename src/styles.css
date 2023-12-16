@@ -1,4 +1,128 @@
 html {
   background: linear-gradient(#ddeeff, #d2e2f2);
+  color: #456;
   height: 100%;
 }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+h2, h3, h4, h5, h6 {
+  margin: 0;
+  width: 100%;
+}
+
+header {
+  width: 90%;
+  text-align: center;
+  align-self: center;
+  grid-area: 1 / 1 / 2 / 3;
+  background-color: rgba(200, 100, 255, 0.3);
+  padding: 2em;
+  border-radius: 1em;}
+
+#content {
+  display: flex;
+  flex-direction: column;  
+  height: 100%;
+}
+
+#interface {
+  display: flex;
+  height: 100%;
+  gap: 10px;
+  padding: 10px;
+}
+
+#projects {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(100, 200, 255, 0.3);
+  padding: 2em;
+  border-radius: 1em;
+}
+
+#project-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1em 0;
+  gap: 1em;
+}
+
+button {
+  background: #ddeeff;
+  color: inherit;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+button:hover {
+  background: #d2e2f2;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+input {
+  border: none;
+  border-radius: 0.5em;
+  padding: 5px;
+  font-size: 1em;
+  background-color: #ddeeff;
+}
+
+
+.project {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 1.5em;
+  padding: 1em;
+}
+
+#todos {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(100, 255, 200, 0.3);
+  padding: 2em;
+  border-radius: 1em;
+}
+
+#todo-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1em 0;
+  gap: 1em;
+}
+
+.todo {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 1.5em;
+  padding: 1em;
+}
+
+
+.active-project {
+  color: yellowgreen;
+}
+
