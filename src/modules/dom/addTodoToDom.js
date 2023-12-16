@@ -5,6 +5,10 @@ export default function addTodo() {
 
   const todo = document.createElement("li");
   todo.classList.add("todo");
+  todo.classList.add("show-details");
+  todo.addEventListener("click", () => {
+    todo.classList.toggle("show-details");
+  });
   const todoTitle = document.createElement("h4");
   todoTitle.textContent = todoName;
   const todoDescription = document.createElement("p");

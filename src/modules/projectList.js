@@ -3,7 +3,7 @@ import createProject from "./project";
 export default function projectList() {
   const projects = [];
   const setupProjects = () => {
-    const defaultProject = createProject("Project");
+    const defaultProject = createProject("Hi from projectList.js");
     projects.push(defaultProject);
   };
   const addProject = (project) => {
