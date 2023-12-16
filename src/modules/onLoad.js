@@ -1,6 +1,6 @@
 import projectList from "./projectList.js";
 import addEventListeners from "./dom/addEventListeners.js";
-import renderProjects from "./renderProjects.js";
+import renderProjects from "./dom/renderProjects.js";
 
 export default function onLoad() {
   const projectListModule = projectList();
