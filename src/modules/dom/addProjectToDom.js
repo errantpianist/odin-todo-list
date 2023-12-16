@@ -4,5 +4,5 @@ export default function addProject(name) {
   const projectTitle = document.createElement("h3");
   projectTitle.textContent = name;
   project.appendChild(projectTitle);
-  document.getElementById("projects").appendChild(project);
+  document.getElementById("project-list").appendChild(project);
 }
