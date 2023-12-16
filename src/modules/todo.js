@@ -1,4 +1,4 @@
-export default function createTodo(title, description, dueDate, priority) {
+export default function createTodo(title, description, dueDate) {
   let isComplete = false;
   const toggleComplete = () => {
     isComplete = !isComplete;
@@ -13,8 +13,12 @@ export default function createTodo(title, description, dueDate, priority) {
   const editDueDate = (newDueDate) => {
     dueDate = newDueDate;
   };
-  const editPriority = (newPriority) => {
-    priority = newPriority;
+
+  const priorities = ["Low", "Normal", "High"];
+  let priority = "Normal";
+  const togglePriority = () => {
+    priority =
+      priorities[(priorities.indexOf(priority) + 1) % priorities.length];
   };
 
   const getTodo = () => {
@@ -27,7 +31,7 @@ export default function createTodo(title, description, dueDate, priority) {
     getTodo,
     editDescription,
     editDueDate,
-    editPriority,
+    togglePriority,
   };
 }
 

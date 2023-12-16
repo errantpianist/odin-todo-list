@@ -17,13 +17,13 @@ export default function addProject(name, projectListModule) {
     const activeProject = document.querySelector(".active-project");
     activeProject.classList.remove("active-project");
 
-    // console.log(e.target);
     e.target.classList.add("active-project");
     clearTodoList();
     renderTodos(projectListModule.getCurrentProject());
   });
   const removeProjectBtn = document.createElement("button");
   removeProjectBtn.textContent = "X";
+  removeProjectBtn.classList.add("x-btn");
   removeProjectBtn.addEventListener("click", () => {
     if (projectListModule.getProjects().length === 1) {
       return;

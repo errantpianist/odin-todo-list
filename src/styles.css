@@ -66,6 +66,19 @@ button:hover {
   background: #d2e2f2;
 }
 
+.x-btn {
+  background: #fdd;
+  color: #c00;
+  border: none;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.x-btn:hover {
+  background: #fcc;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -121,6 +134,13 @@ input {
   padding: 1em;
 }
 
+.high {
+  background: #fdd;
+}
+
+.low {
+  background: #def;
+}
 
 .active-project {
   color: yellowgreen;
