@@ -152,6 +152,14 @@ input {
   border-radius: 5px;
 }
 
+.hide-description-btn {
+  border: none;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin: 1em 0 0 0;
+}
+
 .high {
   background: #fdd;
 }
@@ -164,3 +172,6 @@ input {
   color: yellowgreen;
 }
 
+.hidden {
+  display: none;
+}

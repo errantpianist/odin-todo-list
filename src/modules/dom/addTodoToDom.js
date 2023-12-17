@@ -16,12 +16,20 @@ export default function addTodo(todoObj, project) {
   todoMainContent.classList.add("todo-main-content");
   const todoTitle = document.createElement("h4");
   todoTitle.textContent = todoInfo.title;
+
   const todoDescription = document.createElement("textarea");
   todoDescription.classList.add("todo-description");
   todoDescription.textContent = todoInfo.description;
   todoDescription.addEventListener("change", (e) => {
     todoObj.editDescription(e.target.value);
   });
+  const hideDescriptionBtn = document.createElement("button");
+  hideDescriptionBtn.textContent = "Show/hide description";
+  hideDescriptionBtn.classList.add("hide-description-btn");
+  hideDescriptionBtn.addEventListener("click", (e) => {
+    e.target.parentNode.childNodes[1].classList.toggle("hidden");
+  });
+
   const todoDueDate = document.createElement("p");
   const todoPriority = document.createElement("button");
   todoPriority.textContent = "!";
@@ -44,6 +52,7 @@ export default function addTodo(todoObj, project) {
   todoMainContent.appendChild(removeTodoBtn);
   todo.appendChild(todoMainContent);
   todo.appendChild(todoDescription);
+  todo.appendChild(hideDescriptionBtn);
   document.getElementById("todo-list").appendChild(todo);
   document.getElementById("todo-name").value = "";
 }
