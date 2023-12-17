@@ -121,6 +121,7 @@ input {
   height: 100%;
   padding: 1em 0;
   gap: 1em;
+  
 }
 
 .todo {
@@ -128,10 +129,27 @@ input {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+.todo-main-content {
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 1.5em;
-  padding: 1em;
+  gap: 1em;
+  padding: 0;
+  width: 90%;
+}
+
+.todo-description {
+  width: 90%;
+  border: none;
+  background-color: #ddeeff;
+  color: #333;
+  border-radius: 5px;
 }
 
 .high {

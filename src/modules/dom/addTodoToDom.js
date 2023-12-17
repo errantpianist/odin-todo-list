@@ -2,21 +2,31 @@ import cyclePriority from "./cyclePriority";
 
 export default function addTodo(todoObj, project) {
   const todoInfo = todoObj.getTodo();
+
   const todo = document.createElement("li");
   todo.classList.add("todo");
   todo.classList.add(todoInfo.priority);
-  // todo.classList.add("show-details");
-  todo.addEventListener("click", () => {
-    console.log(todoObj);
+  const todoCheckbox = document.createElement("input");
+  todoCheckbox.type = "checkbox";
+  todoCheckbox.checked = todoInfo.isComplete;
+  todoCheckbox.addEventListener("change", () => {
+    todoObj.toggleComplete();
   });
+  const todoMainContent = document.createElement("div");
+  todoMainContent.classList.add("todo-main-content");
   const todoTitle = document.createElement("h4");
   todoTitle.textContent = todoInfo.title;
-  const todoDescription = document.createElement("p");
+  const todoDescription = document.createElement("textarea");
+  todoDescription.classList.add("todo-description");
+  todoDescription.textContent = todoInfo.description;
+  todoDescription.addEventListener("change", (e) => {
+    todoObj.editDescription(e.target.value);
+  });
   const todoDueDate = document.createElement("p");
   const todoPriority = document.createElement("button");
   todoPriority.textContent = "!";
   todoPriority.addEventListener("click", (e) => {
-    cyclePriority(e.target.parentNode);
+    cyclePriority(e.target.parentNode.parentNode);
     todoObj.togglePriority();
   });
 
@@ -27,11 +37,13 @@ export default function addTodo(todoObj, project) {
     project.removeTodo(todoInfo.title);
     todo.remove();
   });
-  todo.appendChild(todoTitle);
+  todoMainContent.appendChild(todoCheckbox);
+  todoMainContent.appendChild(todoTitle);
+  todoMainContent.appendChild(todoDueDate);
+  todoMainContent.appendChild(todoPriority);
+  todoMainContent.appendChild(removeTodoBtn);
+  todo.appendChild(todoMainContent);
   todo.appendChild(todoDescription);
-  todo.appendChild(todoDueDate);
-  todo.appendChild(todoPriority);
-  todo.appendChild(removeTodoBtn);
   document.getElementById("todo-list").appendChild(todo);
   document.getElementById("todo-name").value = "";
 }
