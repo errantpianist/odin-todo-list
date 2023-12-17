@@ -13,7 +13,7 @@ body {
 
 h2, h3, h4, h5, h6 {
   margin: 0;
-  width: 100%;
+  width: fit-content;
 }
 
 header {
@@ -79,6 +79,13 @@ button:hover {
   background: #fcc;
 }
 
+input[type="date"] {
+  border: none;
+  border-radius: 0.5em;
+  margin: 0.5em 0;
+  background-color: #ddeeff;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -142,6 +149,14 @@ input {
   gap: 1em;
   padding: 0;
   width: 90%;
+}
+
+.edit-todo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+
 }
 
 .todo-description {

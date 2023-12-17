@@ -30,7 +30,13 @@ export default function addTodo(todoObj, project) {
     e.target.parentNode.childNodes[1].classList.toggle("hidden");
   });
 
-  const todoDueDate = document.createElement("p");
+  const todoDueDate = document.createElement("input");
+  todoDueDate.type = "date";
+  todoDueDate.value = todoInfo.dueDate;
+  todoDueDate.addEventListener("change", (e) => {
+    todoObj.editDueDate(e.target.value);
+  });
+
   const todoPriority = document.createElement("button");
   todoPriority.textContent = "!";
   todoPriority.addEventListener("click", (e) => {
@@ -47,9 +53,13 @@ export default function addTodo(todoObj, project) {
   });
   todoMainContent.appendChild(todoCheckbox);
   todoMainContent.appendChild(todoTitle);
-  todoMainContent.appendChild(todoDueDate);
-  todoMainContent.appendChild(todoPriority);
-  todoMainContent.appendChild(removeTodoBtn);
+
+  const editTodo = document.createElement("div");
+  editTodo.classList.add("edit-todo");
+  editTodo.appendChild(todoDueDate);
+  editTodo.appendChild(todoPriority);
+  editTodo.appendChild(removeTodoBtn);
+  todoMainContent.appendChild(editTodo);
   todo.appendChild(todoMainContent);
   todo.appendChild(todoDescription);
   todo.appendChild(hideDescriptionBtn);
