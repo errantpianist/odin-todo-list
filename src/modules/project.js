@@ -7,8 +7,7 @@ export default function createProject(title) {
     todos = todos.filter((t) => t.getTodo().title !== todo);
   };
   const getProject = () => {
-    let res = todos.map((t) => t.getTodo());
-    return { title, todos: res };
+    return { title, todos };
   };
 
   const editTitle = (newTitle) => {

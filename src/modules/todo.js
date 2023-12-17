@@ -14,10 +14,9 @@ export default function createTodo(title, description, dueDate) {
     dueDate = newDueDate;
   };
 
-  const priorities = ["Low", "Normal", "High"];
-  let priority = "Normal";
+  const priorities = ["low", "normal", "high"];
+  let priority = "normal";
   const togglePriority = () => {
-    console.log(priority);
     priority =
       priorities[(priorities.indexOf(priority) + 1) % priorities.length];
   };

@@ -1,15 +1,16 @@
 import cyclePriority from "./cyclePriority";
 
 export default function addTodo(todoObj, project) {
+  const todoInfo = todoObj.getTodo();
   const todo = document.createElement("li");
   todo.classList.add("todo");
-  todo.classList.add("normal");
+  todo.classList.add(todoInfo.priority);
   // todo.classList.add("show-details");
   todo.addEventListener("click", () => {
     console.log(todoObj);
   });
   const todoTitle = document.createElement("h4");
-  todoTitle.textContent = todoObj.title;
+  todoTitle.textContent = todoInfo.title;
   const todoDescription = document.createElement("p");
   const todoDueDate = document.createElement("p");
   const todoPriority = document.createElement("button");

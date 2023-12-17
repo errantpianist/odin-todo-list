@@ -4,7 +4,7 @@ export default function projectList() {
   let projects = [];
   let currentProject;
   const setupProjects = () => {
-    const defaultProject = createProject("Hi from projectList.js");
+    const defaultProject = createProject("Main project");
     projects.push(defaultProject);
     currentProject = projects[0];
   };
