@@ -4,6 +4,6 @@ export default function renderTodos(project) {
   const todos = project.getProject().todos;
   console.log(todos);
   todos.forEach((todo) => {
-    addTodo(todo.title, project);
+    addTodo(todo, project);
   });
 }
