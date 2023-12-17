@@ -24,7 +24,7 @@ export default function addTodo(todoObj, project) {
   removeTodoBtn.textContent = "X";
   removeTodoBtn.classList.add("x-btn");
   removeTodoBtn.addEventListener("click", () => {
-    project.removeTodo(name);
+    project.removeTodo(todoInfo.title);
     todo.remove();
   });
   todo.appendChild(todoTitle);
