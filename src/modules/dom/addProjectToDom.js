@@ -7,16 +7,16 @@ export default function addProject(name, projectListModule) {
   project.classList.add("project");
   const projectTitle = document.createElement("h3");
   projectTitle.textContent = name;
-  const activeProject = document.querySelector(".active-project");
-  if (activeProject) {
-    activeProject.classList.remove("active-project");
+
+  if (name == projectListModule.getCurrentProject().getProject().title) {
+    projectTitle.classList.add("active-project");
   }
-  projectTitle.classList.add("active-project");
   projectTitle.addEventListener("click", (e) => {
     projectListModule.setCurrentProject(projectListModule.getProject(name));
-
     const activeProject = document.querySelector(".active-project");
-    activeProject.classList.remove("active-project");
+    if (activeProject) {
+      activeProject.classList.remove("active-project");
+    }
 
     e.target.classList.add("active-project");
     clearTodoList();
