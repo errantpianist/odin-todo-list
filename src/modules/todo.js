@@ -1,8 +1,9 @@
 export default function createTodo(
-  title,
   isComplete = false,
-  description = "",
-  dueDate = ""
+  title,
+  dueDate = "",
+  priority = "normal",
+  description = ""
 ) {
   const toggleComplete = () => {
     isComplete = !isComplete;
@@ -19,7 +20,6 @@ export default function createTodo(
   };
 
   const priorities = ["low", "normal", "high"];
-  let priority = "normal";
   const togglePriority = () => {
     priority =
       priorities[(priorities.indexOf(priority) + 1) % priorities.length];

@@ -44,7 +44,7 @@ export default function addTodo(todoObj, project, projectListModule) {
   const todoPriority = document.createElement("button");
   todoPriority.textContent = "!";
   todoPriority.addEventListener("click", (e) => {
-    cyclePriority(e.target.parentNode.parentNode);
+    cyclePriority(e.target.parentNode.parentNode.parentNode);
     todoObj.togglePriority();
     saveToLocalStorage(projectListModule);
   });

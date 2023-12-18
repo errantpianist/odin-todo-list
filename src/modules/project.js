@@ -3,7 +3,7 @@ import createTodo from "./todo";
 export default function createProject(title, todos = []) {
   if (todos.length > 0) {
     todos = todos.map((t) =>
-      createTodo(t.title, t.description, t.dueDate, t.priority, t.isComplete)
+      createTodo(t.isComplete, t.title, t.dueDate, t.priority, t.description)
     );
     console.log(todos);
   }
