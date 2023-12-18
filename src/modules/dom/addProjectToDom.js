@@ -33,6 +33,7 @@ export default function addProject(name, projectListModule) {
     saveToLocalStorage(projectListModule);
     project.remove();
     projectListModule.setCurrentProject(projectListModule.getProjects()[0]);
+    document.querySelector(".project").classList.add("active-project");
     clearTodoList();
     renderTodos(projectListModule.getCurrentProject(), projectListModule);
   });
