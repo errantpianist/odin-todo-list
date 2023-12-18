@@ -4,9 +4,15 @@ export default function projectList() {
   let projects = [];
   let currentProject;
   const setupProjects = () => {
-    const defaultProject = createProject("Main project");
-    projects.push(defaultProject);
-    currentProject = projects[0];
+    if (localStorage.getItem("projects")) {
+      projects = JSON.parse(localStorage.getItem("projects"));
+      projects = projects.map((p) => createProject(p.title, p.todos));
+      currentProject = projects[0];
+    } else {
+      const defaultProject = createProject("Main project");
+      projects.push(defaultProject);
+      currentProject = projects[0];
+    }
   };
 
   const setCurrentProject = (project) => {

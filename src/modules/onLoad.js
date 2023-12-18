@@ -1,6 +1,7 @@
 import projectList from "./projectList.js";
 import addEventListeners from "./dom/addEventListeners.js";
 import renderProjects from "./dom/renderProjects.js";
+import renderTodos from "./dom/renderTodos.js";
 
 export default function onLoad() {
   const projectListModule = projectList();
@@ -8,7 +9,5 @@ export default function onLoad() {
 
   addEventListeners(projectListModule);
   renderProjects(projectListModule);
-  document
-    .getElementById("project-list")
-    .firstChild.firstChild.classList.add("active-project");
+  renderTodos(projectListModule.getCurrentProject(), projectListModule);
 }

@@ -1,5 +1,13 @@
-export default function createProject(title) {
-  let todos = [];
+import createTodo from "./todo";
+
+export default function createProject(title, todos = []) {
+  if (todos.length > 0) {
+    todos = todos.map((t) =>
+      createTodo(t.title, t.description, t.dueDate, t.priority, t.isComplete)
+    );
+    console.log(todos);
+  }
+
   const addTodo = (todo) => {
     todos.push(todo);
   };

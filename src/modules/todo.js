@@ -1,5 +1,9 @@
-export default function createTodo(title, description, dueDate) {
-  let isComplete = false;
+export default function createTodo(
+  title,
+  isComplete = false,
+  description = "",
+  dueDate = ""
+) {
   const toggleComplete = () => {
     isComplete = !isComplete;
   };
