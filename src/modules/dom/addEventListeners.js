@@ -7,7 +7,7 @@ export default function addEventListeners(projectListModule) {
 
   addProjectBtn.addEventListener("click", (e) => {
     if (addProjectText.value !== "") {
-      rerenderProjectList(projectListModule, addProjectText);
+      rerenderProjectList(projectListModule, addProjectText, projectListModule);
       document.getElementById("todo-list").innerHTML = "";
     }
   });
@@ -24,13 +24,21 @@ export default function addEventListeners(projectListModule) {
 
   addTodoBtn.addEventListener("click", (e) => {
     if (addTodoText.value !== "") {
-      rerenderTodoList(projectListModule.getCurrentProject(), addTodoText);
+      rerenderTodoList(
+        projectListModule.getCurrentProject(),
+        addTodoText,
+        projectListModule
+      );
     }
   });
 
   addTodoText.addEventListener("keypress", (e) => {
     if (e.key === "Enter" && addTodoText.value !== "") {
-      rerenderTodoList(projectListModule.getCurrentProject(), addTodoText);
+      rerenderTodoList(
+        projectListModule.getCurrentProject(),
+        addTodoText,
+        projectListModule
+      );
     }
   });
 }

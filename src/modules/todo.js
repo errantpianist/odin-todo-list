@@ -28,7 +28,6 @@ export default function createTodo(title, description, dueDate) {
       description,
       dueDate,
       priority,
-      togglePriority,
     };
   };
 

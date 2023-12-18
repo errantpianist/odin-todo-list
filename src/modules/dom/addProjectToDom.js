@@ -1,5 +1,6 @@
 import clearTodoList from "./clearTodoList";
 import renderTodos from "./renderTodos";
+import saveToLocalStorage from "../saveToLocalStorage";
 
 export default function addProject(name, projectListModule) {
   const project = document.createElement("div");
@@ -19,7 +20,7 @@ export default function addProject(name, projectListModule) {
 
     e.target.classList.add("active-project");
     clearTodoList();
-    renderTodos(projectListModule.getCurrentProject());
+    renderTodos(projectListModule.getCurrentProject(), projectListModule);
   });
   const removeProjectBtn = document.createElement("button");
   removeProjectBtn.textContent = "X";
@@ -29,10 +30,11 @@ export default function addProject(name, projectListModule) {
       return;
     }
     projectListModule.removeProject(name);
+    saveToLocalStorage(projectListModule);
     project.remove();
     projectListModule.setCurrentProject(projectListModule.getProjects()[0]);
     clearTodoList();
-    renderTodos(projectListModule.getCurrentProject());
+    renderTodos(projectListModule.getCurrentProject(), projectListModule);
   });
 
   project.appendChild(projectTitle);

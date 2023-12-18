@@ -1,10 +1,16 @@
 import renderTodos from "./renderTodos";
 import clearTodoList from "./clearTodoList";
 import createTodo from "../todo";
+import saveToLocalStorage from "../saveToLocalStorage";
 
-export default function rerenderTodoList(project, addTodoText) {
+export default function rerenderTodoList(
+  project,
+  addTodoText,
+  projectListModule
+) {
   project.addTodo(createTodo(addTodoText.value));
+  saveToLocalStorage(projectListModule);
   clearTodoList();
-  renderTodos(project);
+  renderTodos(project, projectListModule);
   addTodoText.value = "";
 }

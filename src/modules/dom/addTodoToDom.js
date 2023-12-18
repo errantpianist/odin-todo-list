@@ -1,6 +1,7 @@
 import cyclePriority from "./cyclePriority";
+import saveToLocalStorage from "../saveToLocalStorage";
 
-export default function addTodo(todoObj, project) {
+export default function addTodo(todoObj, project, projectListModule) {
   const todoInfo = todoObj.getTodo();
 
   const todo = document.createElement("li");
@@ -11,6 +12,7 @@ export default function addTodo(todoObj, project) {
   todoCheckbox.checked = todoInfo.isComplete;
   todoCheckbox.addEventListener("change", () => {
     todoObj.toggleComplete();
+    saveToLocalStorage(projectListModule);
   });
   const todoMainContent = document.createElement("div");
   todoMainContent.classList.add("todo-main-content");
@@ -22,6 +24,7 @@ export default function addTodo(todoObj, project) {
   todoDescription.textContent = todoInfo.description;
   todoDescription.addEventListener("change", (e) => {
     todoObj.editDescription(e.target.value);
+    saveToLocalStorage(projectListModule);
   });
   const hideDescriptionBtn = document.createElement("button");
   hideDescriptionBtn.textContent = "Show/hide description";
@@ -35,6 +38,7 @@ export default function addTodo(todoObj, project) {
   todoDueDate.value = todoInfo.dueDate;
   todoDueDate.addEventListener("change", (e) => {
     todoObj.editDueDate(e.target.value);
+    saveToLocalStorage(projectListModule);
   });
 
   const todoPriority = document.createElement("button");
@@ -42,6 +46,7 @@ export default function addTodo(todoObj, project) {
   todoPriority.addEventListener("click", (e) => {
     cyclePriority(e.target.parentNode.parentNode);
     todoObj.togglePriority();
+    saveToLocalStorage(projectListModule);
   });
 
   const removeTodoBtn = document.createElement("button");
@@ -49,6 +54,7 @@ export default function addTodo(todoObj, project) {
   removeTodoBtn.classList.add("x-btn");
   removeTodoBtn.addEventListener("click", () => {
     project.removeTodo(todoInfo.title);
+    saveToLocalStorage(projectListModule);
     todo.remove();
   });
   todoMainContent.appendChild(todoCheckbox);
