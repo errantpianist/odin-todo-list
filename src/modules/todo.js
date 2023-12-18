@@ -1,6 +1,6 @@
 export default function createTodo(
-  isComplete = false,
   title,
+  isComplete = false,
   dueDate = "",
   priority = "normal",
   description = ""

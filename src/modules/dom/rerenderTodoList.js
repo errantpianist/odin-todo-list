@@ -9,6 +9,7 @@ export default function rerenderTodoList(
   projectListModule
 ) {
   project.addTodo(createTodo(addTodoText.value));
+  console.log(addTodoText.value);
   saveToLocalStorage(projectListModule);
   clearTodoList();
   renderTodos(project, projectListModule);

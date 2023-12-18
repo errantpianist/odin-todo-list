@@ -3,6 +3,7 @@ import saveToLocalStorage from "../saveToLocalStorage";
 
 export default function addTodo(todoObj, project, projectListModule) {
   const todoInfo = todoObj.getTodo();
+  console.log(todoInfo);
 
   const todo = document.createElement("li");
   todo.classList.add("todo");
